@@ -1,4 +1,5 @@
 # 🛒 Walmart Sales Data Analysis
+<img width="1280" height="302" alt="Walmart_logo_(2008) svg (1)" src="https://github.com/user-attachments/assets/04995912-6732-46ab-88a4-00dda0d37b7c" />
 
 ## 📌 Overview
 
