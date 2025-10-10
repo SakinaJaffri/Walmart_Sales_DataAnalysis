@@ -52,7 +52,6 @@ The dataset is inspired by the [Kaggle Walmart Sales Forecasting Competition](ht
 
 2. **Exploratory Data Analysis (EDA):** Exploratory data analysis is done to answer the listed questions and aims of this project.
 
-3. **Conclusion:**
 
 ## Business Questions To Answer
 
