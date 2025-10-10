@@ -115,7 +115,7 @@ FROM sales
 GROUP BY payment_method
 ORDER BY cnt DESC;
 
--- What is the most selling product line?----------------------------------------------------------
+-- What is the most selling product line?
 
 SELECT 
 	product_line,
@@ -240,5 +240,42 @@ FROM sales
 GROUP BY product_line
 ORDER BY avg_rating DESC;
 
+-- -----------------------------------------------------------------------------------------------------------
+-- SALES------------------------------------------------------------------------------------------------------
 
+-- Number of sales made in each time of the day per weekday
 
+SELECT
+    day_name,
+    time_of_day,
+    COUNT(*) AS cnt
+FROM sales
+GROUP BY day_name, time_of_day
+ORDER BY day_name, cnt DESC;
+
+-- Which of the customer types brings the most revenue?
+
+SELECT
+	customer_type,
+	SUM(total) AS revenue
+FROM sales
+GROUP BY customer_type
+ORDER BY revenue DESC;
+
+-- Which city has the largest tax percent/ VAT (Value Added Tax)?
+
+SELECT
+	DISTINCT(city),
+	SUM(VAT) AS largest_VAT
+FROM sales
+GROUP BY DISTINCT(city)
+ORDER BY largest_VAT DESC;
+
+-- Which customer type pays the most in VAT?
+
+SELECT
+	customer_type,
+	SUM(VAT) AS largest_VAT
+FROM sales
+GROUP BY customer_type
+ORDER BY largest_VAT DESC;
