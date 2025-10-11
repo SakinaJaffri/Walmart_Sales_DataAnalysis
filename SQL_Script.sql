@@ -80,13 +80,13 @@ SET month_name = (
 -- ----------------------------------------------------------------------------------------------
 -- GENERIC---------------------------------------------------------------------------------------
 
--- How many unique cities does the data have?----------------------------------------------------
+-- How many unique cities does the data have?
 
 SELECT
 	DISTINCT(city)
 FROM sales;
 
--- In which city is each branch?-----------------------------------------------------------------
+-- In which city is each branch?
 
 SELECT
 	DISTINCT(city),
@@ -279,3 +279,99 @@ SELECT
 FROM sales
 GROUP BY customer_type
 ORDER BY largest_VAT DESC;
+
+-- -------------------------------------------------------------------------------------------------------
+-- CUSTOMER-----------------------------------------------------------------------------------------------
+
+-- How many unique customer types does the data have?
+
+SELECT
+	DISTINCT(customer_type)
+FROM sales;
+
+-- How many unique payment methods does the data have?
+
+SELECT
+	DISTINCT(payment_method)
+FROM sales;
+
+-- What is the most common customer type?
+
+SELECT
+	customer_type,
+	COUNT(customer_type) AS most_common
+FROM sales
+GROUP BY customer_type
+ORDER BY most_common DESC;
+
+-- Which customer type buys the most?
+
+SELECT
+	customer_type,
+	COUNT(*) AS total_purchases
+FROM sales
+GROUP BY customer_type
+ORDER BY total_purchases DESC;
+
+
+-- What is the gender of most of the customers?
+
+SELECT
+	gender,
+	COUNT(*) AS gen_cnt
+FROM sales
+GROUP BY gender
+ORDER BY gen_cnt DESC;
+
+-- What is the gender distribution per branch?
+
+SELECT
+	branch,
+	gender,
+	COUNT(*) AS gender_count
+FROM sales
+GROUP BY branch, gender
+ORDER BY branch, gender DESC;
+
+-- Which time of the day do customers give most ratings?
+
+SELECT
+	time_of_day,
+	COUNT(rating) AS rating_count
+FROM sales
+GROUP BY time_of_day
+ORDER BY rating_count DESC;
+
+-- Which time of the day do customers give most ratings per branch?
+
+SELECT
+	branch,
+	time_of_day,
+	COUNT(rating) AS rating_count
+FROM sales
+GROUP BY branch, time_of_day
+ORDER BY branch, rating_count DESC;
+
+
+-- Which day fo the week has the best avg ratings?
+
+SELECT
+	day_name,
+	ROUND(AVG(rating), 2) AS avg_rating
+FROM sales
+GROUP BY day_name
+ORDER BY avg_rating DESC;
+	
+	
+-- Which day of the week has the best average ratings per branch?
+
+SELECT
+	branch,
+	day_name,
+	ROUND(AVG(rating), 2) AS avg_rating
+FROM sales
+GROUP BY branch, day_name
+ORDER BY avg_rating DESC;
+
+-- -------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------
