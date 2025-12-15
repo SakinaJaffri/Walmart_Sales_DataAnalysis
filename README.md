@@ -103,5 +103,5 @@ The dataset is inspired by the [Kaggle Walmart Sales Forecasting Competition](ht
 
 ## ✅ Conclusion
 
-This project(inspired) helped solidify my understanding of SQL for data analysis, including grouping, filtering, joins, and window functions. I also learned how to extract time-based features and draw meaningful business insights from transaction data.
+This project(Guided) helped solidify my understanding of SQL for data analysis, including grouping, filtering, joins, and window functions. I also learned how to extract time-based features and draw meaningful business insights from transaction data.
 
