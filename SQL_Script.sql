@@ -373,5 +373,9 @@ FROM sales
 GROUP BY branch, day_name
 ORDER BY avg_rating DESC;
 
+
+SELECT *,
+       AVG(total) OVER (PARTITION BY product_line) AS avg_product_revenue
+FROM sales;
 -- -------------------------------------------------------------------------------------------
 -- -------------------------------------------------------------------------------------------
